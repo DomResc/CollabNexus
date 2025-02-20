@@ -1,0 +1,41 @@
+{
+  "name": "collabnexus",
+  "version": "1.0.0",
+  "description": "Applicazione P2P per la gestione dei team",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "electron .",
+    "dev:electron": "concurrently \"yarn dev\" \"wait-on http://localhost:5173 && electron .\"",
+    "build:electron": "yarn build && electron-builder"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0",
+    "y-webrtc": "^10.2.5",
+    "yjs": "^13.6.10",
+    "@orbitdb/core": "^2.0.0",
+    "@helia/unixfs": "^1.4.1",
+    "helia": "^2.1.0",
+    "marked": "^11.1.1"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "concurrently": "^8.2.2",
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1",
+    "svelte": "^4.2.8",
+    "vite": "^5.0.10",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.collabnexus.app",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "dist/**/*"
+    ]
+  }
+}
